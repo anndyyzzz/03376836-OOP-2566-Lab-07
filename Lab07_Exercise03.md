@@ -1,37 +1,30 @@
-# Lab 7 Exercise 2
+# Lab 7 Exercise 3
 
-## Properties calculation
+## Read-only properties
 
 1. สร้าง console application project
 
 ```cmd
-dotnet new console --name Lab07_Ex02
+dotnet new console --name Lab07_Ex03
 ```
 
 2. เปลี่ยน code ให้เป็นดังต่อไปนี้
 
 ```cs
 MyClass mc = new MyClass();
+System.Console.WriteLine($"My value  = {mc.MyValue}");
+
 mc.MyValue = 50;
-System.Console.WriteLine($"mc.MyValue = {mc.MyValue}");
-mc.MyValue = 150;
-System.Console.WriteLine($"mc.MyValue = {mc.MyValue}");
+System.Console.WriteLine($"My value  = {mc.MyValue}");
 
 class MyClass
 {
-    private int StoredPercentValue;
-    public int MyValue
+    private const double My_PI =  Math.PI;
+    public double MyValue
     {
-        set
-        {   
-            if(value > 100)
-                StoredPercentValue = 100;
-                else
-                StoredPercentValue = value;
-        }
         get
         {
-            return StoredPercentValue;
+            return My_PI;
         }
     }
 }
@@ -40,7 +33,7 @@ class MyClass
 3. Build project โดยการใช้คำสั่ง
 
 ```cmd
-dotnet build  Lab07_Ex02
+dotnet build  Lab07_Ex03
 ```
 
 ถ้ามีที่ผิดพลาดในโปรแกรม ให้แก้ไขให้ถูกต้อง
@@ -50,7 +43,7 @@ dotnet build  Lab07_Ex02
 5. Run project โดยการใช้คำสั่ง
 
 ```cmd
-dotnet run --project Lab07_Ex02
+dotnet run --project Lab07_Ex03
 ```
 
 6. บันทึกผลที่ได้จากการรันคำสั่งในข้อ 5
