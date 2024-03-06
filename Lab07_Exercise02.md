@@ -1,6 +1,6 @@
 # Lab 7 Exercise 1
 
-## Properties
+## Properties calculation
 
 1. สร้าง console application project
 
