@@ -11,29 +11,28 @@ dotnet new console --name Lab07_Ex01
 2. เปลี่ยน code ให้เป็นดังต่อไปนี้
 
 ```cs
-var c1 = new Circle();
-c1.Radius = 3.0f;
-c1.Info();
-c1.Diameter = 8.0;
-c1.Info();
+MyClass mc = new MyClass();
+mc.MyValue = 50;
+System.Console.WriteLine($"mc.MyValue = {mc.MyValue}");
+mc.MyValue = 150;
+System.Console.WriteLine($"mc.MyValue = {mc.MyValue}");
 
-class Circle
+class MyClass
 {
-    private double radius;
-    public double Radius 
-    { 
-        get{return radius;} 
-        set{radius = value;} 
-    }
-    public double Diameter
+    private int StoredPercentValue;
+    public int MyValue
     {
-        get{return radius * 2;} 
-        set{radius = value / 2.0;}
-    }
-
-    public void Info()
-    {
-        System.Console.WriteLine($"My circle has radius of {radius:F4} and diameter of {Diameter:F4} unit");
+        set
+        {   
+            if(value > 100)
+                StoredPercentValue = 100;
+                else
+                StoredPercentValue = value;
+        }
+        get
+        {
+            return StoredPercentValue;
+        }
     }
 }
 ```
